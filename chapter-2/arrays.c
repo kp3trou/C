@@ -10,13 +10,19 @@ int main(){
 	// These data elements have the same data type.
 	// There are a number of operations that can be preformed on arrays.
 	// These operations include:
+	// - Traversing an array
+	// - Inserting an element in an array
+	// - Searching an element in an array
+	// - Deleting an element from an array
+	// - Merging two arrays
+	// - Sorting an array in ascending or descending order
 
 	// 1.1: Traversing an Array
 	// Traversing an array means accessing each and every element
 	// of the array for a specific purpose. 
 	
 	// 1.1.1: Read and display n numbers using an array
-
+	
 	// array declaration
 	int ar[3];
 
