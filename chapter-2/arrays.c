@@ -75,15 +75,19 @@ int main(){
 
 	// 1.1.4: Find whether the array of integers contains a duplicate number
 	// print the positions of the array of the dublicates numbers
-	int arr3[10] = {4,2,3,4,2,3,7,8,1,9};
-
+	int arr3[10] = {2,1,9,4,2,3,7,8,1,9};
+	int flag = 0;
 	for(int i=0;i<10;i++){
 		for(int j=i+1;j<10;j++){
 			if(arr3[i] == arr3[j]){
 				printf("Dublicate number is: %d\n",arr3[i]);
 				printf("Found at positions: arr3[%d] and arr3[%d]\n", i, j);
+				flag = 1;
 			}
 		}
+	}
+	if (!flag){
+		printf("There are no dublicates numbers in the array\n");
 	}
 	printf("\n----------\n");
 
