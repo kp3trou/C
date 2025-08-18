@@ -15,7 +15,7 @@ int main(){
 	// Traversing an array means accessing each and every element
 	// of the array for a specific purpose. 
 	
-	// 1.1.1: Display read and display n numbers using an array
+	// 1.1.1: Read and display n numbers using an array
 
 	// array declaration
 	int ar[3];
@@ -81,20 +81,20 @@ int main(){
 	}
 	printf("\n----------\n");
 
-	// 1.1.5: Insert a number at a given location in an array.
+	// 1.2: Inserting an Element in an Array
+	
+	// 1.2.1: Insert a number at a given location in an array.
 	int arr4[10] = {1,2,3,4,5,6};
 	int pos = 3;// index position of the array
 	int add = 7;// number to add at pos
 	int n3 = 6;// number of elemenets at the beginning array 
 
-	// shift elememnts to the right start from the end of the array.
+	// shift elememnts to the right start from the end of the array until pos.
     for(int i = n3-1; i >= pos; i--){
         arr4[i+1] = arr4[i];
     }
-
 	arr4[pos] = add; 
     n3++;             
-
     for(int i=0;i<n3;i++){
         printf("arr4[%d] : %d\n",i,arr4[i]);
     }
