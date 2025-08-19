@@ -110,6 +110,37 @@ int main(){
     }
 	printf("\n----------\n");
 
+	// 1.2.2:  Insert a number in an array that is already sorted in ascending order
+
+	int arr5[10] = {1,2,4,5,6};
+	int num = 3;// number to add in array
+	int size = 5;// number of elements is array
+	int i;
+	for(i=0;i<size;i++){
+		if(arr5[i]>num)
+			break;
+	}
+	//printf("the index position need to be inserted is %d\n",i);
+	
+	// shift elements to the right
+	for(int j=size-1;j>=i;j--){
+		arr5[j+1] =arr5[j];
+	}
+	// Insert the number
+    arr5[i] = num;
+    size++; // Increase the size
+
+	printf("Array after insertion:\n");
+    for(i = 0; i < size; i++) {
+        printf("arr5[%d] = %d\n", i, arr5[i]);
+    }
+	printf("\n----------\n");
+
+
+
+
+
+
 
 
 
