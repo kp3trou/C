@@ -136,6 +136,54 @@ int main(){
     }
 	printf("\n----------\n");
 
+	// 1.3: Deleting an Element from an Array
+
+	int arr6[10] = {1,2,3,4,5};
+	int elements = 5;
+	int pos3 = 2;// at arr6[2] delete 3
+
+	// move elements to the left
+	for (int i=pos3;i<elements-1;i++){
+		arr6[i] = arr6[i+1];
+	}
+
+	elements--;
+	for(int i = 0; i < elements; i++) {
+        printf("arr6[%d] = %d\n", i, arr6[i]);
+    }
+	printf("\n----------\n");
+
+	// 1.4: Merging Two Arrays
+
+	// 1.4.1: Merge 2 unsored arrays
+	// Merging two arrays in a third array means first copying the contents of
+	// the first array into the third array and then copying the contents of 
+	// the second array into the third array.	
+
+	int arr7[6] = {3,1,2,12,13,14};
+	int arr7size = 6;
+	int arr8[3] = {5,4,6};
+	int arr8size = 3;
+	int mergedar[7];// final array
+	int index = 0;
+
+	for (int i=0;i< arr7size;i++){
+		mergedar[index]= arr7[i];
+		index++;
+	}
+
+	for (int i=0;i< arr8size;i++){
+		mergedar[index]= arr8[i];
+		index++;
+	}
+
+	printf("\nThe merged array is\n");
+
+	for(i=0;i<index;i++)
+		printf("mergedar[%d] = %d\n", i, mergedar[i]);
+	printf("\n----------\n");
+
+
 
 
 
