@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
 #define M 2
 #define N 2
 
@@ -297,21 +295,53 @@ int main(){
 	}
 	printf("\n----------\n");
 
+	// Strings
+	
+	// Write a program to find the length of a string.
+	
+	char str[] = "hello world";
+	int g = 0;
+	int length = 0;
 
+	while(str[g] != '\0'){
+		g++;
+	}
+	length = g;
+	printf("The lenght of the string is %d\n",length);
+	printf("The lenght of the string is %d\n",strlen(str));
+	printf("\n----------\n");
+	
+	// Write a program to reverse a given string
+	
+	char str2[] = "hello world";
+	char str3[strlen(str2)+1]; 
+	char temp;
+	int h = 0;
+	int j = strlen(str2)-1;
+	while(str2[h]!='\0'){
+		str3[h] = str2[j];
+		h++;
+		j--;
+	}
+	//printf("%d\n",h);
+	str3[h] = '\0';
+	printf("reversed string is: %s\n",str3);
+	printf("\n----------\n");
 
+	// Extracting a Substring from a String
 
-
-
-
-
-
-
-
-
-
-
-
-
+	char str4[21] = "My name is John Deer";
+	char substr4[21]; 
+	int pos4 = 4;
+	int w = 0;	
+	while(str4[pos4]!='\0'){
+		substr4[w] = str4[pos4];	
+		w++;
+		pos4++;
+	}
+	substr4[w] = '\0';
+	printf("sub string is:'%s'\n",substr4);
+	printf("\n----------\n");
 
 	return 0;
 }
@@ -353,25 +383,5 @@ void interchange(int* p,int size){
 	//for(int i=0;i< size;i++)
 	//	printf("%d\n",p[i]);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
