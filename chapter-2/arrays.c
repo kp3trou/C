@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
+#define M 2
+#define N 2
+
+// functions declaration
+int find_smallest(int* p, int size);
+void interchange(int* p,int size);
+
+
 int main(){
 	// Section 1 
 	// An array is a linear data structure.
@@ -155,7 +165,7 @@ int main(){
 
 	// 1.4: Merging Two Arrays
 
-	// 1.4.1: Merge 2 unsored arrays
+	// 1.4.1: Merge 2 unsorted arrays
 	// Merging two arrays in a third array means first copying the contents of
 	// the first array into the third array and then copying the contents of 
 	// the second array into the third array.	
@@ -183,12 +193,109 @@ int main(){
 		printf("mergedar[%d] = %d\n", i, mergedar[i]);
 	printf("\n----------\n");
 
+	// 1.4.2: Merge 2 sorted arrays
+	
+	int arr9[]  = {20,30,40,50,60};
+	int arr10[] = {15,22,31,45,56,62,78};
+	int arr11[12]; //{15,20,22,30,31,40,45,50,56,60,62,78};// merged array
 
+	int x = 5;// size of arr9
+	int y = 7;// size of arr10
+	int z = x+y;// size of arr11
+	int idx = 0;
+	int index_first=0,index_second=0;
 
+	while (index_first<x && index_second<y){
+		if(arr9[index_first]< arr10[index_second]){
+			arr11[idx] = arr9[index_first];
+			index_first++;
+			idx++;
+		}
+		else{
+			arr11[idx] = arr10[index_second];
+			index_second++;
+			idx++;
+		}
+	}
 
+	// if the first array is finished
+	if (index_first == x){
+		// insert all elements from the second array into the merged array
+		while (index_second<y){
+			arr11[idx] = arr10[index_second];
+			index_second++;
+			idx++;
+		}
+	}
 
+	// if the second array is finished
+	else if (index_second == y){
+		// insert all elements from the first array into the merged array
+		while (index_first<y){
+			arr11[idx] = arr9[index_first];
+			index_first++;
+			idx++;
+		}
+	}
 
+	printf("Merged array is :\n");
+	for (int i=0;i<z;i++)
+		printf("arr11[%d] = %d\n",i,arr11[i]);
+	printf("\n----------\n");
 
+	// Write a program to read ana array of n numbers and find the smallest number
+	int arr12[] = {5,6,3,2,1,9};
+	int s12 = 6;
+	printf("The smallest number in the array is %d\n",find_smallest(arr12,s12));
+	printf("\n----------\n");
+
+	// Write a program to interchange the largest and the smallest number in an array.
+	int arr13[] = {2,3,1,5,7,9};
+	int s13 = 6;
+	interchange(arr13,s13);
+	printf("array after intechange smallest and largest number\n");
+	for(int i=0;i< size;i++)
+		printf("arr13[%d] is %d\n",i,arr13[i]);
+	printf("\n----------\n");
+
+	// Declaring Two-dimensional Arrays
+	// A two-dimensional array is declared as:
+	// data_type array_name[row_size][column_size];
+
+	// the initialization of a two-dimensional array is done row by row
+	int marks[2][3]={{90,87,78},{68, 62, 71}};
+
+	// Write a program to multiply two m x n matrices.
+	
+	// we use define for array dimensions M, N.
+	int arr14[M][N] = {
+			{1,2},
+			{3,4}
+	};
+	int arr15[M][N] = {
+			{5,6},
+			{7,8}
+	};
+	int arr16[M][N] = {0};
+
+	for(int i=0;i<M;i++){
+		for(int j=0;j<N;j++){
+			arr16[i][j] = 0;
+			for(int k=0; k<N; k++) {
+				arr16[i][j] += arr14[i][k] * arr15[k][j];
+			}
+		}
+	}
+
+	printf("array after multiply:\n\n");
+	// print the array after multiply:
+	for(int i=0; i<M; i++) {
+    	for(int j=0; j<N; j++) {
+        	printf("%d ", arr16[i][j]);
+    	}
+    	printf("\n");
+	}
+	printf("\n----------\n");
 
 
 
@@ -208,4 +315,63 @@ int main(){
 
 	return 0;
 }
+
+// functions definition
+
+// Returns smallest number of an array.Args are:pointer to an array of integers, size of the array.
+int find_smallest(int* p, int size){
+	int smallest = p[0];// assume the first element is the smallest number
+	for(int i=1;i<size;i++){
+		if(p[i]<smallest){
+			smallest = p[i];
+		}
+	}
+	return smallest;
+}
+
+// Interchange in place the smallest and largest numbers of an array.
+// Args: pointer to an array, size of the array
+void interchange(int* p,int size){
+	int pos = 0;// position of smallest number
+	int pos2 = 0;// position of largest number
+	int small = p[0], large = p[0];// initialization
+
+	for(int i=1;i<size;i++){
+		if(p[i] < small){
+			small = p[i];
+			pos = i;
+		}
+		if(p[i] > large){
+			large = p[i];
+			pos2 = i;
+		}
+	}
+	int tmp = p[pos];
+	p[pos] = p[pos2];
+	p[pos2] = tmp;
+	//printf("%d %d\n",pos,pos2);
+	//for(int i=0;i< size;i++)
+	//	printf("%d\n",p[i]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
