@@ -126,6 +126,7 @@ int main(){
 	// Passing Individual Members
 	Point p1 = {2,3};
 	display(p1.x,p1.y);
+	printf("----------\n");
 
 	// Passing the Entire Structure
 	// The syntax for passing a structure to a function and returning a structure can be given:
@@ -135,47 +136,37 @@ int main(){
 	p2.x = 10;
 	p2.y = 20;
 	display_2(p2);
+	printf("----------\n");
 
 	// Passing Structures through Pointers
 	
+	Student *s4;// No memory allocation for struct Student, only pointeri s4 creation.
+			    // This pointer points only at objects like struct Student.
+	Student s5; // memory allocation for struct Student.
+	s4 = &s5;   // Now, pointer s4 points to s5 struct variable.
 
+	printf("add values to s5 through pointer s4:\n");
 
+	s4->r_no = 50;
+	strcpy(s4->name,"George Best");
+	strcpy(s4->course,"Gymnastics");
+	s4->fees = 950.50;
+	s4->date.day = 9;
+	s4->date.month = 7;
+	s4->date.year = 2025;
+	printf("%d\n",s4->r_no);
+	printf("%s\n",s4->name);
+	printf("%s\n",s4->course);
+	printf("%.2f\n",s4->fees);
+	printf("%d - %d - %d\n\n",s4->date.day,s4->date.month,s4->date.year);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	printf("see the values that s4 struct has now:\n");
+	printf("%d\n",s5.r_no);
+	printf("%s\n",s5.name);
+	printf("%s\n",s5.course);
+	printf("%.2f\n",s5.fees);
+	printf("%d - %d - %d\n\n",s5.date.day,s5.date.month,s5.date.year);
+	printf("----------\n");
 
 	return 0;
 }
@@ -183,19 +174,11 @@ int main(){
 // function definitions
 
 void display(int a, int b){
-	 printf(" The coordinates of the point are: %d %d\n", a, b);
+	 printf("The coordinates of the point are: %d %d\n", a, b);
 }
 
 void display_2(Point gp){
-	 printf(" The coordinates of the point are: %d %d\n", gp.x, gp.y);
+	 printf("The coordinates of the point are: %d %d\n", gp.x, gp.y);
 }
-
-
-
-
-
-
-
-
 
 
