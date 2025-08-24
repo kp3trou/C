@@ -8,7 +8,7 @@ struct node {
 	struct node *next;
 };
 
-// global variable
+// global variable pointer that points at struct node data type.
 struct node *start = NULL;
 
 
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
 		scanf("%d",&option);
 		switch(option){
 			case 1: create_ll(start);
-			return 0;
+			//return 0;
 		}
 
 
@@ -53,54 +53,36 @@ int main(int argc, char *argv[]){
 
 // function definitions
 
+// insert nodes and data.
 struct node *create_ll(struct node *start){
 
-	printf("create_ll\n");
-	
-	struct node *new_node, *ptr;// declare 2 pointers at struct node	
+	struct node *new_node, *ptr;// declare 2 pointers that points at struct node data type.
 	int num;
 	printf("Enter -1 to end\n");
 	printf("Enter the data: ");
 	scanf("%d",&num);
 
 	while(num!=-1){
-	
 		new_node = (struct node*)malloc(sizeof(struct node));// memory allocation for new node.
 		new_node->data = num;// insert data.
 		if(start==NULL){
 			new_node->next = NULL;
 			start = new_node;
 		}
-	
+		else{
+			ptr = start;
+			while(ptr->next!=NULL){
+				ptr = ptr->next;
+			}
+			ptr->next = new_node;
+			new_node->next=NULL;
+		}
 
-
-
-	
+		printf("Enter the data: \n");
+		scanf("%d",&num);
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	return start;
 }
 
 
