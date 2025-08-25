@@ -14,7 +14,7 @@ struct node *start = NULL;
 
 // function declarations
 struct node *create_ll(struct node *start);
-
+struct node *display(struct node *start);
 
 
 int main(int argc, char *argv[]){
@@ -41,8 +41,11 @@ int main(int argc, char *argv[]){
 		printf("Enter your option: ");
 		scanf("%d",&option);
 		switch(option){
-			case 1: create_ll(start);
+			case 1: start =  create_ll(start);
 			//return 0;
+			break;
+			case 2: start = display(start);
+			break;
 		}
 
 
@@ -53,7 +56,8 @@ int main(int argc, char *argv[]){
 
 // function definitions
 
-// insert nodes and data.
+// create linked list and insert nodes and data.
+// The node insert at the end of list.(first, second, third, etc)
 struct node *create_ll(struct node *start){
 
 	struct node *new_node, *ptr;// declare 2 pointers that points at struct node data type.
@@ -85,7 +89,22 @@ struct node *create_ll(struct node *start){
 	return start;
 }
 
-
+// Display the list
+struct node *display(struct node *start){
+	struct node *ptr;
+	ptr = start;
+	if(ptr == NULL){
+		printf("The list is empty.\n");
+		return start;
+	
+	}
+	while(ptr != NULL){
+		printf("%d -> ", ptr -> data);
+		ptr = ptr -> next;
+	}
+	printf("NULL (End Of List)\n");
+	return start;
+}
 
 
 
